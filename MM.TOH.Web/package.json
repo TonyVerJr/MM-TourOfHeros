@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "name": "mm.tourofheros",
+  "private": true,
+  "description": "Scratch Angular and TypeScript app.",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "~4.0.0",
+    "@angular/compiler": "~4.0.0",
+    "@angular/core": "~4.0.0",
+    "@angular/forms": "~4.0.0",
+    "@angular/http": "~4.0.0",
+    "@angular/platform-browser": "~4.0.0",
+    "@angular/platform-browser-dynamic": "~4.0.0",
+    "@angular/router": "~4.0.0",
+    "angular-in-memory-web-api": "~0.3.2",
+    "systemjs": "~0.20.13",
+    "core-js": "~2.4.1",
+    "rxjs": "~5.4.0",
+    "zone.js": "~0.8.11"
+  },
+  "devDependencies": {
+    "concurrently": "~3.4.0",
+    "gulp": "~3.9.1",
+    "del": "~2.2.2",
+    "typescript": "~2.3.4",
+    "canonical-path": "0.0.2",
+    "tslint": "~5.4.3",
+    "lodash": "~4.17.4",
+    "jasmine-core": "~2.6.2",
+    "karma": "~1.7.0",
+    "karma-chrome-launcher": "~2.1.1",
+    "karma-cli": "~1.0.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "~0.2.2",
+    "protractor": "~5.1.2",
+    "rimraf": "~2.6.1",
+    "@types/node": "~7.0.21",
+    "@types/jasmine": "~2.5.47"
+  }
+}

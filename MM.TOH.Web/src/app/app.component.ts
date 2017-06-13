@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 
-import { Hero } from './hero/hero';
+import { Hero } from './hero/hero.model';
 
 const HEROES: Hero[] = [
     { id: 11, name: 'Mr. Nice' },

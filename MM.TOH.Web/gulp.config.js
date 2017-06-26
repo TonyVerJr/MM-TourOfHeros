@@ -28,15 +28,13 @@
         appBase: [
             base.src + "main.js",
             base.src + "favicon.ico",
-            base.src + "index.html",
-            base.src + "main.js.map"  // This should only be copied for dev
+            base.src + "index.html"
         ],
 
         appFiles: [
             base.appSrc + "**/*.js",
             base.appSrc + "**/*.css",
-            base.appSrc + "**/*.html",
-            base.appSrc + "**/*.js.map"  // This should only be copied for dev
+            base.appSrc + "**/*.html"
         ],
 
         appScripts: [

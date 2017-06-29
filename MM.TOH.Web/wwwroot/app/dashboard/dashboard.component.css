@@ -46,8 +46,7 @@ h4 {
 }
 
     .module:hover {
-        /*background-color: #EEE;*/
-        background-color: red;
+        background-color: #EEE;
         cursor: pointer;
         color: #607d8b;
     }

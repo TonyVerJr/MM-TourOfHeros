@@ -9,30 +9,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
-var app_component_1 = require("./app.component");
-var dashboard_component_1 = require("./dashboard/dashboard.component");
-var app_routing_module_1 = require("./app-routing.module");
-var hero_module_1 = require("./hero/hero.module");
-var AppModule = (function () {
-    function AppModule() {
+var hero_detail_component_1 = require("./hero-detail.component");
+var heroes_component_1 = require("./heroes.component");
+var hero_service_1 = require("./hero.service");
+var HeroModule = (function () {
+    function HeroModule() {
     }
-    return AppModule;
+    return HeroModule;
 }());
-AppModule = __decorate([
+HeroModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule,
-            hero_module_1.HeroModule,
-            app_routing_module_1.AppRoutingModule
+            forms_1.FormsModule
         ],
         declarations: [
-            app_component_1.AppComponent,
-            dashboard_component_1.DashboardComponent
+            hero_detail_component_1.HeroDetailComponent,
+            heroes_component_1.HeroesComponent
         ],
-        providers: [],
-        bootstrap: [app_component_1.AppComponent]
+        providers: [
+            hero_service_1.HeroService
+        ],
+        exports: [
+            hero_detail_component_1.HeroDetailComponent,
+            heroes_component_1.HeroesComponent
+        ]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], HeroModule);
+exports.HeroModule = HeroModule;
+//# sourceMappingURL=hero.module.js.map

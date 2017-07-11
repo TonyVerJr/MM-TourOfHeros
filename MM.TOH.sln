@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.TOH.Web", "MM.TOH.Web\MM.TOH.Web.csproj", "{1E943623-2278-4179-BE57-7127A94BC59F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MM.TOH.Web", "MM.TOH.Web\MM.TOH.Web.csproj", "{1E943623-2278-4179-BE57-7127A94BC59F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MM.TOH.WebApi", "MM.TOH.WebApi\MM.TOH.WebApi.csproj", "{3DC0D5DE-4EBC-4F16-BE69-A834219626DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1E943623-2278-4179-BE57-7127A94BC59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E943623-2278-4179-BE57-7127A94BC59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E943623-2278-4179-BE57-7127A94BC59F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC0D5DE-4EBC-4F16-BE69-A834219626DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC0D5DE-4EBC-4F16-BE69-A834219626DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC0D5DE-4EBC-4F16-BE69-A834219626DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC0D5DE-4EBC-4F16-BE69-A834219626DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

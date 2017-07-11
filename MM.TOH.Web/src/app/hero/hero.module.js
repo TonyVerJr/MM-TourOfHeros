@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var hero_detail_component_1 = require("./hero-detail.component");
 var heroes_component_1 = require("./heroes.component");
+var hero_search_component_1 = require("./hero-search.component");
 var hero_service_1 = require("./hero.service");
 var HeroModule = (function () {
     function HeroModule() {
@@ -25,14 +26,16 @@ HeroModule = __decorate([
         ],
         declarations: [
             hero_detail_component_1.HeroDetailComponent,
-            heroes_component_1.HeroesComponent
+            heroes_component_1.HeroesComponent,
+            hero_search_component_1.HeroSearchComponent
         ],
         providers: [
             hero_service_1.HeroService
         ],
         exports: [
             hero_detail_component_1.HeroDetailComponent,
-            heroes_component_1.HeroesComponent
+            heroes_component_1.HeroesComponent,
+            hero_search_component_1.HeroSearchComponent
         ]
     })
 ], HeroModule);

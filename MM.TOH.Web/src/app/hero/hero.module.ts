@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
+import { HeroSearchComponent } from './hero-search.component';
+
 import { HeroService } from './hero.service';
 
 @NgModule({
@@ -13,14 +15,16 @@ import { HeroService } from './hero.service';
     ],
     declarations: [
         HeroDetailComponent,
-        HeroesComponent
+        HeroesComponent,
+        HeroSearchComponent
     ],
     providers: [
         HeroService
     ],
     exports: [
         HeroDetailComponent,
-        HeroesComponent
+        HeroesComponent,
+        HeroSearchComponent
     ]
 })
 

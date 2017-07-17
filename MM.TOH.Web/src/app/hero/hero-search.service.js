@@ -15,10 +15,11 @@ require("rxjs/add/operator/map");
 var HeroSearchService = (function () {
     function HeroSearchService(http) {
         this.http = http;
+        this.heroesUrl = 'http://localhost:18281/api/heroes';
     }
     HeroSearchService.prototype.search = function (term) {
         return this.http
-            .get("api/heroes/?name=" + term)
+            .get(this.heroesUrl + '/?name=${term}')
             .map(function (response) { return response.json().data; });
     };
     return HeroSearchService;

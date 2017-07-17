@@ -33,6 +33,8 @@
 
         appFiles: [
             base.appSrc + "**/*.js",
+            base.appSrc + "**/*.js.map",  // for debugging purposes only
+            base.appSrc + "**/*.ts",      // for debugging purposes only
             base.appSrc + "**/*.css",
             base.appSrc + "**/*.html"
         ],

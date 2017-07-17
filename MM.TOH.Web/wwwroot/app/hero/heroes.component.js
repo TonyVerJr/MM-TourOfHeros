@@ -22,7 +22,9 @@ var HeroesComponent = (function () {
     };
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
-        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes; });
+        this.heroService
+            .getHeroes()
+            .subscribe(function (heroes) { return _this.heroes = heroes; }, function (error) { return _this.errorMessage = error; });
     };
     HeroesComponent.prototype.onSelect = function (hero) {
         this.selectedHero = hero;
@@ -36,17 +38,18 @@ var HeroesComponent = (function () {
         if (!name) {
             return;
         }
-        this.heroService.create(name)
-            .then(function (hero) {
+        this.heroService
+            .create(name)
+            .subscribe(function (hero) {
             _this.heroes.push(hero);
             _this.selectedHero = null;
-        });
+        }, function (error) { return _this.errorMessage = error; });
     };
     HeroesComponent.prototype.delete = function (hero) {
         var _this = this;
         this.heroService
             .delete(hero.id)
-            .then(function () {
+            .subscribe(function () {
             _this.heroes = _this.heroes.filter(function (h) { return h !== hero; });
             if (_this.selectedHero === hero) {
                 _this.selectedHero = null;

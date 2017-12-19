@@ -13,7 +13,6 @@ import { HeroService } from './hero.service';
 export class HeroesComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
-    errorMessage: string;
 
     constructor(
         private router: Router,
@@ -24,12 +23,7 @@ export class HeroesComponent implements OnInit {
     }
 
     getHeroes(): void {
-        this.heroService
-            .getHeroes()
-            .subscribe(
-                heroes => this.heroes = heroes,
-                error => this.errorMessage = <any>error
-            );
+        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
     }
 
     onSelect(hero: Hero): void {
@@ -43,21 +37,17 @@ export class HeroesComponent implements OnInit {
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }
-        this.heroService
-            .create(name)
-            .subscribe(
-                hero => {
-                    this.heroes.push(hero);
-                    this.selectedHero = null;
-                },
-                error => this.errorMessage = <any>error
-        );
+        this.heroService.create(name)
+            .then(hero => {
+                this.heroes.push(hero);
+                this.selectedHero = null;
+            });
     }
 
     delete(hero: Hero): void {
         this.heroService
             .delete(hero.id)
-            .subscribe(() => {
+            .then(() => {
                 this.heroes = this.heroes.filter(h => h !== hero);
                 if (this.selectedHero === hero) { this.selectedHero = null; }
             });

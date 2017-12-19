@@ -11,63 +11,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var Observable_1 = require("rxjs/Observable");
-require("rxjs/add/operator/catch");
-require("rxjs/add/operator/map");
+require("rxjs/add/operator/toPromise");
 var HeroService = (function () {
     function HeroService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.heroesUrl = 'http://localhost:18281/api/heroes';
+        this.heroesUrl = 'api/heroes';
     }
     HeroService.prototype.getHero = function (id) {
         var url = this.heroesUrl + "/" + id;
         return this.http
             .get(url)
-            .map(this.extractData)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
             .catch(this.handleError);
     };
     HeroService.prototype.getHeroes = function () {
         return this.http
             .get(this.heroesUrl)
-            .map(this.extractData)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
             .catch(this.handleError);
+    };
+    HeroService.prototype.getHeroesSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            setTimeout(function () { return resolve(_this.getHeroes()); }, 2000);
+        });
     };
     HeroService.prototype.update = function (hero) {
         var url = this.heroesUrl + "/" + hero.id;
         return this.http
             .put(url, JSON.stringify(hero), { headers: this.headers })
-            .map(function () { return hero; })
+            .toPromise()
+            .then(function () { return hero; })
             .catch(this.handleError);
     };
     HeroService.prototype.create = function (name) {
         return this.http
             .post(this.heroesUrl, JSON.stringify({ name: name }), { headers: this.headers })
-            .map(this.extractData)
+            .toPromise()
+            .then(function (res) { return res.json().data; })
             .catch(this.handleError);
     };
     HeroService.prototype.delete = function (id) {
         var url = this.heroesUrl + "/" + id;
         return this.http.delete(url, { headers: this.headers })
-            .map(function () { return null; })
+            .toPromise()
+            .then(function () { return null; })
             .catch(this.handleError);
     };
-    HeroService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body || {};
-    };
     HeroService.prototype.handleError = function (error) {
-        var errMsg;
-        if (error instanceof http_1.Response) {
-            var body = error.json() || '';
-            var err = body.error || JSON.stringify(body);
-            errMsg = error.status + " - " + (error.statusText || '') + " " + err;
-        }
-        else {
-            errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return Observable_1.Observable.throw(errMsg);
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     };
     return HeroService;
 }());

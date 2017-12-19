@@ -34,7 +34,7 @@ export class HeroDetailComponent implements OnInit {
 
     save(): void {
         this.heroService.update(this.hero)
-            .subscribe(() => this.goBack());
+            .then(() => this.goBack());
     }
 
     @Input() hero: Hero;
